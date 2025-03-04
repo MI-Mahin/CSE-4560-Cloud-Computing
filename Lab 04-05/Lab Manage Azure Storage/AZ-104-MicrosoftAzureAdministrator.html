@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<!-- saved from url=(0121)https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>
+            AZ-104-MicrosoftAzureAdministrator
+        </title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator_files/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator_files/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator_files/vs.min.css">
+        <script src="./AZ-104-MicrosoftAzureAdministrator_files/highlight.min.js.download"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator_files/style.css">
+    </head>
+    <body data-spy="scroll" data-target="#linksMenu" data-new-gr-c-s-check-loaded="14.1223.0" data-gr-ext-installed="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gray">
+        <div class="container d-flex justify-content-between">
+            <a class="my-1 title text-white" href="https://docs.microsoft.com/training/">
+                <img src="./AZ-104-MicrosoftAzureAdministrator_files/microsoft-gray.png" alt="Microsoft logo" style="width:100px;height:21px;">
+            </a>
+            <span class="my-1 title text-black">Microsoft Learn</span>
+            <span class="ml-2"><a href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator">≡</a></span>
+        </div>
+        <!--
+        <div class="container d-flex justify-content-between">
+            <a class="my-1 title text-azure text-uppercase" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator">
+                AZ-104-MicrosoftAzureAdministrator
+            </a>
+            <a href="https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator" target="_blank" class="btn btn-sm btn-outline-secondary text-light">
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <span class="ml-2">GitHub</span>
+            </a>
+        </div>
+        -->
+    </nav>
+    <hr color-"gray"="">
+    <div class="container">
+        <main class="row extra-padding">
+            <aside class="col-sm-2">       
+                <nav id="linksMenu" class="toc sticky-top">
+                    <ul class="nav navbar-nav flex-column">
+                    <li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#lab-introduction">Lab introduction</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#estimated-timing-50-minutes">Estimated timing: 50 minutes</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#lab-scenario">Lab scenario</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#interactive-lab-simulations">Interactive lab simulations</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#architecture-diagram">Architecture diagram</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#job-skills">Job skills</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#task-1-create-and-configure-a-storage-account">Task 1: Create and configure a storage account.</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#task-2-create-and-configure-secure-blob-storage">Task 2: Create and configure secure blob storage</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#task-3-create-and-configure-an-azure-file-storage">Task 3: Create and configure an Azure File storage</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#cleanup-your-resources">Cleanup your resources</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#extend-your-learning-with-copilot">Extend your learning with Copilot</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#learn-more-with-self-paced-training">Learn more with self-paced training</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_07-Manage_Azure_Storage.html#key-takeaways">Key takeaways</a></li></ul>
+                </nav>         
+            </aside>
+            <hr class="">
+            <article class="col-sm-10 mb-5">
+                <h1 id="lab-07---manage-azure-storage">Lab 07 - Manage Azure Storage</h1>
+
+<h2 id="lab-introduction">Lab introduction</h2>
+
+<p>In this lab you learn to create storage accounts for Azure blobs and Azure files. You learn to configure and secure blob containers. You also learn to use Storage Browser to configure and secure Azure file shares.</p>
+
+<p>This lab requires an Azure subscription. Your subscription type may affect the availability of features in this lab. You may change the region, but the steps are written using <strong>East US</strong>.</p>
+
+<h2 id="estimated-timing-50-minutes">Estimated timing: 50 minutes</h2>
+
+<h2 id="lab-scenario">Lab scenario</h2>
+
+<p>Your organization is currently storing data in on-premises data stores. Most of these files are not accessed frequently. You would like to minimize the cost of storage by placing infrequently accessed files in lower-priced storage tiers. You also plan to explore different protection mechanisms that Azure Storage offers, including network access, authentication, authorization, and replication. Finally, you want to determine to what extent Azure Files is suitable for hosting your on-premises file shares.</p>
+
+<h2 id="interactive-lab-simulations">Interactive lab simulations</h2>
+
+<p>There are interactive lab simulations that you might find useful for this topic. The simulation lets you to click through a similar scenario at your own pace. There are differences between the interactive simulation and this lab, but many of the core concepts are the same. An Azure subscription is not required.</p>
+
+<ul>
+  <li>
+    <p><a href="https://mslearn.cloudguides.com/en-us/guides/AZ-900%20Exam%20Guide%20-%20Azure%20Fundamentals%20Exercise%205">Create blob storage</a>. Create a storage account, manage blob storage, and monitor storage activities.</p>
+  </li>
+  <li>
+    <p><a href="https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2011">Manage Azure storage</a>. Create a storage account and review the configuration. Manage blob storage containers. Configure storage networking.</p>
+  </li>
+</ul>
+
+<h2 id="architecture-diagram">Architecture diagram</h2>
+
+<p><a href="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab07-architecture.png" target="_blank"><img src="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab07-architecture.png" alt="Diagram of the tasks."></a></p>
+
+<h2 id="job-skills">Job skills</h2>
+
+<ul>
+  <li>Task 1: Create and configure a storage account.</li>
+  <li>Task 2: Create and configure secure blob storage.</li>
+  <li>Task 3: Create and configure secure Azure file storage.</li>
+</ul>
+
+<h2 id="task-1-create-and-configure-a-storage-account">Task 1: Create and configure a storage account.</h2>
+
+<p>In this task, you will create and configure a storage account. The storage account will use geo-redundant storage and will not have public access.</p>
+
+<ol>
+  <li>
+    <p>Sign in to the <strong>Azure portal</strong> - <code>https://portal.azure.com</code>.</p>
+  </li>
+  <li>
+    <p>Search for and select <code>Storage accounts</code>, and then click <strong>+ Create</strong>.</p>
+  </li>
+  <li>
+    <p>On the <strong>Basics</strong> tab of the <strong>Create a storage account</strong> blade, specify the following settings (leave others with their default values):</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Subscription</td>
+          <td>the name of your Azure subscription</td>
+        </tr>
+        <tr>
+          <td>Resource group</td>
+          <td><strong>az104-rg7</strong> (create new)</td>
+        </tr>
+        <tr>
+          <td>Storage account name</td>
+          <td>any globally unique name between 3 and 24 in length consisting of letters and digits</td>
+        </tr>
+        <tr>
+          <td>Region</td>
+          <td><strong>(US) East US</strong></td>
+        </tr>
+        <tr>
+          <td>Performance</td>
+          <td><strong>Standard</strong> (notice the Premium option)</td>
+        </tr>
+        <tr>
+          <td>Redundancy</td>
+          <td><strong>Geo-redundant storage</strong> (notice the other options)</td>
+        </tr>
+        <tr>
+          <td>Make read access to data in the event of regional availability</td>
+          <td>Check the box</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+</ol>
+
+<blockquote>
+  <p><strong>Did you know?</strong> You should use the Standard performance tier for most applications. Use the Premium performance tier for enterprise or high-performance applications.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>On the <strong>Advanced</strong> tab, use the informational icons to learn more about the choices. Take the defaults.</p>
+  </li>
+  <li>
+    <p>On the <strong>Networking</strong> tab, review the available options, select <strong>Disable public access and use private access</strong>.</p>
+  </li>
+  <li>
+    <p>Review the <strong>Data protection</strong> tab. Notice 7 days is the default soft delete retention policy. Note you can enable blob versioning. Accept the defaults.</p>
+  </li>
+  <li>
+    <p>Review the <strong>Encryption</strong> tab. Notice the additional security options. Accept the defaults.</p>
+  </li>
+  <li>
+    <p>Select <strong>Review</strong>, wait for the validation process to complete, and then click <strong>Create</strong>.</p>
+  </li>
+  <li>
+    <p>Once the storage account is deployed, select <strong>Go to resource</strong>.</p>
+  </li>
+  <li>
+    <p>Review the <strong>Overview</strong> blade and the additional configurations that can be changed. These are global settings for the storage account. Notice the storage account can be used for Blob containers, File shares, Queues, and Tables.</p>
+  </li>
+  <li>
+    <p>In the <strong>Security + networking</strong> section, select <strong>Networking</strong>. Notice public network access is disabled.</p>
+
+    <ul>
+      <li>Change the <strong>public access level</strong> to <strong>Enabled from selected virtual networks and IP addresses</strong>.</li>
+      <li>In the <strong>Firewall</strong> section, check the box for <strong>Add your client IP address.</strong></li>
+      <li>Be sure to <strong>Save</strong> your changes.</li>
+    </ul>
+  </li>
+  <li>
+    <p>In the <strong>Data management</strong> section, view the <strong>Redundancy</strong> blade. Notice the information about your primary and secondary data center locations.</p>
+  </li>
+  <li>
+    <p>In the <strong>Data management</strong> section, select <strong>Lifecycle management</strong>, and then select <strong>Add a rule</strong>.</p>
+
+    <ul>
+      <li>
+        <p><strong>Name</strong> the rule <code>Movetocool</code>. Notice your options for limiting the scope of the rule.</p>
+      </li>
+      <li>
+        <p>On the <strong>Base blobs</strong> tab, <em>if</em> based blobs were last modified more than <code>30 days</code> ago <em>then</em> <strong>move to cool storage</strong>. Notice your other choices.</p>
+      </li>
+      <li>
+        <p>Notice you can configure other conditions. Select <strong>Add</strong> when you are done exploring.</p>
+      </li>
+    </ul>
+
+    <p><a href="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab07-movetocool.png" target="_blank"><img src="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab07-movetocool.png" alt="Screenshot move to cool rule conditions."></a></p>
+  </li>
+</ol>
+
+<h2 id="task-2-create-and-configure-secure-blob-storage">Task 2: Create and configure secure blob storage</h2>
+
+<p>In this task, you will create a blob container and upload an image. Blob containers are directory-like structures that store unstructured data.</p>
+
+<h3 id="create-a-blob-container-and-a-time-based-retention-policy">Create a blob container and a time-based retention policy</h3>
+
+<ol>
+  <li>
+    <p>Continue in the Azure portal, working with your storage account.</p>
+  </li>
+  <li>
+    <p>In the <strong>Data storage</strong> section, click <strong>Containers</strong>.</p>
+  </li>
+  <li>
+    <p>Click <strong>+ Container</strong> and <strong>Create</strong> a container with the following settings:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td><code>data</code></td>
+        </tr>
+        <tr>
+          <td>Public access level</td>
+          <td>Notice the access level is set to private</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><a href="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab07-create-container.png" target="_blank"><img src="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab07-create-container.png" alt="Screenshot of create a container."></a></p>
+  </li>
+  <li>
+    <p>On your container, scroll to the ellipsis (…) on the far right, select <strong>Access Policy</strong>.</p>
+  </li>
+  <li>
+    <p>In the <strong>Immutable blob storage</strong> area, select <strong>Add policy</strong>.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Policy type</td>
+          <td><strong>Time-based retention</strong></td>
+        </tr>
+        <tr>
+          <td>Set retention period for</td>
+          <td><code>180</code> days</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Select <strong>Save</strong>.</p>
+  </li>
+</ol>
+
+<h3 id="manage-blob-uploads">Manage blob uploads</h3>
+
+<ol>
+  <li>
+    <p>Return to the containers page, select your <strong>data</strong> container and then click <strong>Upload</strong>.</p>
+  </li>
+  <li>
+    <p>On the <strong>Upload blob</strong> blade, expand the <strong>Advanced</strong> section.</p>
+
+    <blockquote>
+      <p><strong>Note</strong>: Locate a file to upload. This can be any type of file, but a small file is best. A sample file can be downloaded from the AllFiles directory.</p>
+    </blockquote>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Browse for files</td>
+          <td>add the file you have selected to upload</td>
+        </tr>
+        <tr>
+          <td>Select <strong>Advanced</strong></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Blob type</td>
+          <td><strong>Block blob</strong></td>
+        </tr>
+        <tr>
+          <td>Block size</td>
+          <td><strong>4 MiB</strong></td>
+        </tr>
+        <tr>
+          <td>Access tier</td>
+          <td><strong>Hot</strong>  (notice the other options)</td>
+        </tr>
+        <tr>
+          <td>Upload to folder</td>
+          <td><code>securitytest</code></td>
+        </tr>
+        <tr>
+          <td>Encryption scope</td>
+          <td>Use existing default container scope</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Click <strong>Upload</strong>.</p>
+  </li>
+  <li>
+    <p>Confirm you have a new folder, and your file was uploaded.</p>
+  </li>
+  <li>
+    <p>Select your upload file and review the options including <strong>Download</strong>, <strong>Delete</strong>, <strong>Change tier</strong>, and <strong>Acquire lease</strong>.</p>
+  </li>
+  <li>
+    <p>Copy the file <strong>URL</strong> and paste into a new <strong>Inprivate</strong> browsing window.</p>
+  </li>
+  <li>
+    <p>You should be presented with an XML-formatted message stating <strong>ResourceNotFound</strong> or <strong>PublicAccessNotPermitted</strong>.</p>
+
+    <blockquote>
+      <p><strong>Note</strong>: This is expected, since the container you created has the public access level set to <strong>Private (no anonymous access)</strong>.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h3 id="configure-limited-access-to-the-blob-storage">Configure limited access to the blob storage</h3>
+
+<ol>
+  <li>
+    <p>Select your uploaded file and then on the <strong>Generate SAS</strong> tab. You can also use the ellipsis (…) to the far right. Specify the following settings (leave others with their default values):</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Signing key</td>
+          <td><strong>Key 1</strong></td>
+        </tr>
+        <tr>
+          <td>Permissions</td>
+          <td><strong>Read</strong> (notice your other choices)</td>
+        </tr>
+        <tr>
+          <td>Start date</td>
+          <td>yesterday’s date</td>
+        </tr>
+        <tr>
+          <td>Start time</td>
+          <td>current time</td>
+        </tr>
+        <tr>
+          <td>Expiry date</td>
+          <td>tomorrow’s date</td>
+        </tr>
+        <tr>
+          <td>Expiry time</td>
+          <td>current time</td>
+        </tr>
+        <tr>
+          <td>Allowed IP addresses</td>
+          <td>leave blank</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Click <strong>Generate SAS token and URL</strong>.</p>
+  </li>
+  <li>
+    <p>Copy the <strong>Blob SAS URL</strong> entry to the clipboard.</p>
+  </li>
+  <li>
+    <p>Open another InPrivate browser window and navigate to the Blob SAS URL you copied in the previous step.</p>
+
+    <blockquote>
+      <p><strong>Note</strong>: You should be able to view the content of the file.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h2 id="task-3-create-and-configure-an-azure-file-storage">Task 3: Create and configure an Azure File storage</h2>
+
+<p>In this task, you will create and configure Azure File shares. You will use Storage Browser to manage the file share.</p>
+
+<h3 id="create-the-file-share-and-upload-a-file">Create the file share and upload a file</h3>
+
+<ol>
+  <li>
+    <p>In the Azure portal, navigate back to your storage account, in the <strong>Data storage</strong> section, click <strong>File shares</strong>.</p>
+  </li>
+  <li>
+    <p>Click <strong>+ File share</strong> and on the <strong>Basics</strong> tab give the file share a name, <code>share1</code>.</p>
+  </li>
+  <li>
+    <p>Notice the <strong>Access tier</strong> options. Keep the default <strong>Transaction optimized</strong>.</p>
+  </li>
+  <li>
+    <p>Move to the <strong>Backup</strong> tab and ensure <strong>Enable backup</strong> is <strong>not</strong> checked. We are disabling backup to simplify the lab configuration.</p>
+  </li>
+  <li>
+    <p>Click <strong>Review + create</strong>, and then <strong>Create</strong>. Wait for the file share to deploy.</p>
+
+    <p><a href="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab07-create-share.png" target="_blank"><img src="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab07-create-share.png" alt="Screenshot of the create file share page."></a></p>
+  </li>
+</ol>
+
+<h3 id="explore-storage-browser-and-upload-a-file">Explore Storage Browser and upload a file</h3>
+
+<ol>
+  <li>
+    <p>Return to your storage account and select <strong>Storage browser</strong>. The Azure Storage Browser is a portal tool that lets you quickly view all the storage services under your account.</p>
+  </li>
+  <li>
+    <p>Select <strong>File shares</strong> and verify your <strong>share1</strong> directory is present.</p>
+  </li>
+  <li>
+    <p>Select your <strong>share1</strong> directory and notice you can <strong>+ Add directory</strong>. This lets you create a folder structure.</p>
+  </li>
+  <li>
+    <p>Select <strong>Upload</strong>. Browse to a file of your choice, and then click <strong>Upload</strong>.</p>
+
+    <blockquote>
+      <p><strong>Note</strong>: You can view file shares and manage those shares in the Storage Browser. There are currently no restrictions.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h3 id="restrict-network-access-to-the-storage-account">Restrict network access to the storage account</h3>
+
+<ol>
+  <li>
+    <p>In the portal, search for and select <strong>Virtual networks</strong>.</p>
+  </li>
+  <li>
+    <p>Select <strong>+ Create</strong>. Select your resource group. and give the virtual network a <strong>name</strong>, <code>vnet1</code>.</p>
+  </li>
+  <li>
+    <p>Take the defaults for other parameters, select <strong>Review + create</strong>, and then <strong>Create</strong>.</p>
+  </li>
+  <li>
+    <p>Wait for the virtual network to deploy, and then select <strong>Go to resource</strong>.</p>
+  </li>
+  <li>In the <strong>Settings</strong> section, select the <strong>Service endpoints</strong> blade.
+    <ul>
+      <li>Select <strong>Add</strong>.</li>
+      <li>In the <strong>Services</strong> drop-down select <strong>Microsoft.Storage</strong>.</li>
+      <li>In the <strong>Subnets</strong> drop-down check the <strong>Default</strong> subnet.</li>
+      <li>Click <strong>Add</strong> to save your changes.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Return to your storage account.</p>
+  </li>
+  <li>
+    <p>In the <strong>Security + networking</strong> section, select the <strong>Networking</strong> blade.</p>
+  </li>
+  <li>
+    <p>Select <strong>add existing virtual network</strong> and select <strong>vnet1</strong> and <strong>default</strong> subnet, select <strong>Add</strong>.</p>
+  </li>
+  <li>
+    <p>In the <strong>Firewall</strong> section, <strong>Delete</strong> your machine IP address. Allowed traffic should only come from the virtual network.</p>
+  </li>
+  <li>
+    <p>Be sure to <strong>Save</strong> your changes.</p>
+
+    <blockquote>
+      <p><strong>Note:</strong> The storage account should now only be accessed from the virtual network you just created.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Select the <strong>Storage browser</strong> and <strong>Refresh</strong> the page. Navigate to your file share or blob content.</p>
+
+    <blockquote>
+      <p><strong>Note:</strong> You should receive a message <em>not authorized to perform this operation</em>. You are not connecting from the virtual network. It may take a couple of minutes for this to take effect.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<p><a href="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab07-notauthorized.png" target="_blank"><img src="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab07-notauthorized.png" alt="Screenshot unauthorized access."></a></p>
+
+<h2 id="cleanup-your-resources">Cleanup your resources</h2>
+
+<p>If you are working with <strong>your own subscription</strong> take a minute to delete the lab resources. This will ensure resources are freed up and cost is minimized. The easiest way to delete the lab resources is to delete the lab resource group.</p>
+
+<ul>
+  <li>In the Azure portal, select the resource group, select <strong>Delete the resource group</strong>, <strong>Enter resource group name</strong>, and then click <strong>Delete</strong>.</li>
+  <li>Using Azure PowerShell, <code>Remove-AzResourceGroup -Name resourceGroupName</code>.</li>
+  <li>Using the CLI, <code>az group delete --name resourceGroupName</code>.</li>
+</ul>
+
+<h2 id="extend-your-learning-with-copilot">Extend your learning with Copilot</h2>
+<p>Copilot can assist you in learning how to use the Azure scripting tools. Copilot can also assist in areas not covered in the lab or where you need more information. Open an Edge browser and choose Copilot (top right) or navigate to <em>copilot.microsoft.com</em>. Take a few minutes to try these prompts.</p>
+
+<ul>
+  <li>Provide an Azure PowerShell script to create a storage account with a blob container.</li>
+  <li>Provide a checklist I can use to ensure my Azure storage account is secure.</li>
+  <li>Create a table to compare Azure storage redundancy models.</li>
+</ul>
+
+<h2 id="learn-more-with-self-paced-training">Learn more with self-paced training</h2>
+
+<ul>
+  <li><a href="https://learn.microsoft.com/training/modules/optimize-your-cost-azure-blob-storage/">Optimize your cost with Azure Blob Storage</a>. Learn how to optimize your cost with Azure Blob Storage.</li>
+  <li><a href="https://learn.microsoft.com/training/modules/control-access-to-azure-storage-with-sas/">Control access to Azure Storage with shared access signatures</a>. Grant access to data stored in your Azure Storage accounts securely by using shared access signatures.</li>
+</ul>
+
+<h2 id="key-takeaways">Key takeaways</h2>
+
+<p>Congratulations on completing the lab. Here are the main takeaways for this lab.</p>
+
+<ul>
+  <li>An Azure storage account contains all your Azure Storage data objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS.</li>
+  <li>Azure storage provides several redundancy models including Locally redundant storage (LRS), Zone-redundant storage (ZRS), and Geo-redundant storage (GRS).</li>
+  <li>Azure blob storage allows you to store large amounts of unstructured data on Microsoft’s data storage platform. Blob stands for Binary Large Object, which includes objects such as images and multimedia files.</li>
+  <li>Azure file Storage provides shared storage for structured data. The data can be organized in folders.</li>
+  <li>Immutable storage provides the capability to store data in a write once, read many (WORM) state. Immutable storage policies can be time-based or legal-hold.</li>
+</ul>
+
+            </article>
+        </main>
+    </div>
+    <footer class="fixed-bottom d-print-none">
+        <nav class="navbar navbar-light bg-light d-flex justify-content-around">
+            <span class="navbar-text">
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <a href="https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator" target="_blank" class="ml-2">
+                    MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator
+                </a>
+            </span>
+        </nav>
+    </footer>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/jquery-3.2.1.slim.min.js.download" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/popper.min.js.download" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/bootstrap.min.js.download" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/clipboard.min.js.download"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/highlight.min.js.download"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/script.js.download"></script>
+
+
+
+<iframe id="e4ibGNoO" frameborder="0" src="./AZ-104-MicrosoftAzureAdministrator_files/translateSandbox.html" style="width: 0px; height: 0px; display: none;"></iframe></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

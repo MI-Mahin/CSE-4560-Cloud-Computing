@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!-- saved from url=(0127)https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>
+            AZ-104-MicrosoftAzureAdministrator
+        </title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator_files/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator_files/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator_files/vs.min.css">
+        <script src="./AZ-104-MicrosoftAzureAdministrator_files/highlight.min.js.download"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator_files/style.css">
+    </head>
+    <body data-spy="scroll" data-target="#linksMenu" data-new-gr-c-s-check-loaded="14.1223.0" data-gr-ext-installed="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gray">
+        <div class="container d-flex justify-content-between">
+            <a class="my-1 title text-white" href="https://docs.microsoft.com/training/">
+                <img src="./AZ-104-MicrosoftAzureAdministrator_files/microsoft-gray.png" alt="Microsoft logo" style="width:100px;height:21px;">
+            </a>
+            <span class="my-1 title text-black">Microsoft Learn</span>
+            <span class="ml-2"><a href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator">≡</a></span>
+        </div>
+        <!--
+        <div class="container d-flex justify-content-between">
+            <a class="my-1 title text-azure text-uppercase" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator">
+                AZ-104-MicrosoftAzureAdministrator
+            </a>
+            <a href="https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator" target="_blank" class="btn btn-sm btn-outline-secondary text-light">
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <span class="ml-2">GitHub</span>
+            </a>
+        </div>
+        -->
+    </nav>
+    <hr color-"gray"="">
+    <div class="container">
+        <main class="row extra-padding">
+            <aside class="col-sm-2">       
+                <nav id="linksMenu" class="toc sticky-top">
+                    <ul class="nav navbar-nav flex-column">
+                    <li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html#lab-introduction">Lab introduction</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html#estimated-timing-30-minutes">Estimated timing: 30 minutes</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html#lab-scenario">Lab scenario</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html#architecture-diagram">Architecture diagram</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html#job-skills">Job skills</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html#task-1-create-and-configure-user-accounts">Task 1: Create and configure user accounts</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html#task-2-create-groups-and-add-members">Task 2: Create groups and add members</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html#extend-your-learning-with-copilot">Extend your learning with Copilot</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html#learn-more-with-self-paced-training">Learn more with self-paced training</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_01-Manage_Entra_ID_Identities.html#key-takeaways">Key takeaways</a></li></ul>
+                </nav>         
+            </aside>
+            <hr class="">
+            <article class="col-sm-10 mb-5">
+                <h1 id="lab-01---manage-microsoft-entra-id-identities">Lab 01 - Manage Microsoft Entra ID Identities</h1>
+
+<h2 id="lab-introduction">Lab introduction</h2>
+
+<p>This is the first in a series of labs for Azure Administrators. In this lab, you learn about users and groups. Users and groups are the basic building blocks for an identity solution.</p>
+
+<p>This lab requires an Azure subscription. Your subscription type may affect the availability of features in this lab. You may change the region, but the steps are written using <strong>East US</strong>.</p>
+
+<h2 id="estimated-timing-30-minutes">Estimated timing: 30 minutes</h2>
+
+<h2 id="lab-scenario">Lab scenario</h2>
+
+<p>Your organization is building a new lab environment for pre-production testing of apps and services.  A few engineers are being hired to manage the lab environment, including the virtual machines. To allow the engineers to authenticate by using Microsoft Entra ID, you have been tasked with provisioning users and groups. To minimize administrative overhead, membership of the groups should be updated automatically based on job titles.</p>
+
+<h2 id="architecture-diagram">Architecture diagram</h2>
+
+<p><a href="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab01-architecture.png" target="_blank"><img src="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab01-architecture.png" alt="Diagram of the lab 01 architecture."></a></p>
+
+<h2 id="job-skills">Job skills</h2>
+
+<ul>
+  <li>Task 1: Create and configure user accounts.</li>
+  <li>Task 2: Create groups and add members.</li>
+</ul>
+
+<h2 id="task-1-create-and-configure-user-accounts">Task 1: Create and configure user accounts</h2>
+
+<p>In this task, you will create and configure user accounts. User accounts will store user data such as name, department, location, and contact information.</p>
+
+<ol>
+  <li>
+    <p>Sign in to the <strong>Azure portal</strong> - <code>https://portal.azure.com</code>.</p>
+  </li>
+  <li>
+    <p>To proceed to the portal, select <strong>Cancel</strong> on the <strong>Welcome to Azure</strong> splash screen.</p>
+
+    <blockquote>
+      <p><strong>Note:</strong> The Azure portal is used in all the labs. If you are new to the Azure, search for and select <code>Quickstart Center</code>. Take a few minutes to watch the <strong>Getting started in the Azure portal</strong> video. Even if you have used the portal before, you will find a few tips and tricks on navigating and customizing the interface.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Search for and select <code>Microsoft Entra ID</code>. Microsoft Entra ID is Azure’s cloud-based identity and access management solution. Take a few minutes to familiarize yourself with some of the features listed in the left pane.</p>
+  </li>
+  <li>
+    <p>Select the <strong>Overview</strong> blade and then the <strong>Manage tenants</strong> tab.</p>
+
+    <blockquote>
+      <p><strong>Did you know?</strong> A tenant is a specific instance of Microsoft Entra ID containing accounts and groups. Depending on your situation, you can create more tenants and <strong>Switch</strong> between them.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Return to the <strong>Entra ID</strong> page by pressing back in the browser or selecting the option in the breadcrumb menu.</p>
+  </li>
+  <li>
+    <p>As you have time, explore other options such as <strong>Licenses</strong> and <strong>Password reset</strong>.</p>
+  </li>
+</ol>
+
+<h3 id="create-a-new-user">Create a new user</h3>
+
+<ol>
+  <li>
+    <p>Select <strong>Users</strong>, then in the <strong>New user</strong> drop-down select <strong>Create new user</strong>.</p>
+  </li>
+  <li>
+    <p>Create a new user with the following settings (leave others with their defaults). On the <strong>Properties</strong> tab notice all the different types of information that can be included in the user account.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>User principal name</td>
+          <td><code>az104-user1</code></td>
+        </tr>
+        <tr>
+          <td>Display name</td>
+          <td><code>az104-user1</code></td>
+        </tr>
+        <tr>
+          <td>Auto-generate password</td>
+          <td><strong>checked</strong></td>
+        </tr>
+        <tr>
+          <td>Account enabled</td>
+          <td><strong>checked</strong></td>
+        </tr>
+        <tr>
+          <td>Job title (Properties tab)</td>
+          <td><code>IT Lab Administrator</code></td>
+        </tr>
+        <tr>
+          <td>Department (Properties tab)</td>
+          <td><code>IT</code></td>
+        </tr>
+        <tr>
+          <td>Usage location (Properties tab)</td>
+          <td><strong>United States</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Once you have finished reviewing, select <strong>Review + create</strong> and then <strong>Create</strong>.</p>
+  </li>
+  <li>
+    <p>Refresh the page and confirm your new user was created.</p>
+  </li>
+</ol>
+
+<h3 id="invite-an-external-user">Invite an external user</h3>
+
+<ol>
+  <li>
+    <p>In the <strong>New user</strong> drop-down select <strong>Invite an external user</strong>.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Email</td>
+          <td>your email address</td>
+        </tr>
+        <tr>
+          <td>Display name</td>
+          <td>your name</td>
+        </tr>
+        <tr>
+          <td>Send invite message</td>
+          <td><strong>check the box</strong></td>
+        </tr>
+        <tr>
+          <td>Message</td>
+          <td><code>Welcome to Azure and our group project</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Move to the <strong>Properties</strong> tab. Complete the basic information, including these fields.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Job title</td>
+          <td><code>IT Lab Administrator</code></td>
+        </tr>
+        <tr>
+          <td>Department</td>
+          <td><code>IT</code></td>
+        </tr>
+        <tr>
+          <td>Usage location (Properties tab)</td>
+          <td><strong>United States</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Select <strong>Review + invite</strong>, and then <strong>Invite</strong>.</p>
+  </li>
+  <li>
+    <p><strong>Refresh</strong> the page and confirm the invited user was created. You should receive the invitation email shortly.</p>
+
+    <blockquote>
+      <p><strong>Note:</strong> It is unlikely you will be creating user accounts individually. Do you know how your organization plans to create and manage user accounts?</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h2 id="task-2-create-groups-and-add-members">Task 2: Create groups and add members</h2>
+
+<p>In this task, you create a group account. Group accounts can include user accounts or devices. These are two basic ways members are assigned to groups: Statically and Dynamically. Static groups require administrators to add and remove members manually.  Dynamic groups update automatically based on the properties of a user account or device. For example, job title.</p>
+
+<ol>
+  <li>
+    <p>In the Azure portal, search for and select <code>Microsoft Entra ID</code>. In the <strong>Manage</strong> blade, select <strong>Groups</strong>.</p>
+  </li>
+  <li>
+    <p>Take a minute to familiarize yourself with the group settings in the left pane.</p>
+
+    <ul>
+      <li><strong>Expiration</strong> lets you configure a group lifetime in days. After that time the group must be renewed by the owner.</li>
+      <li><strong>Naming policy</strong> lets you configure blocked words and add a prefix or suffix to group names.</li>
+    </ul>
+  </li>
+  <li>
+    <p>In the <strong>All groups</strong> blade, select <strong>+ New group</strong> and create a new group.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Group type</td>
+          <td><strong>Security</strong></td>
+        </tr>
+        <tr>
+          <td>Group name</td>
+          <td><code>IT Lab Administrators</code></td>
+        </tr>
+        <tr>
+          <td>Group description</td>
+          <td><code>Administrators that manage the IT lab</code></td>
+        </tr>
+        <tr>
+          <td>Membership type</td>
+          <td><strong>Assigned</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <blockquote>
+      <p><strong>Note</strong>: An Entra ID Premium P1 or P2 license is required for dynamic membership. If other <strong>Membership types</strong> are available, the options will show up in the drop-down.</p>
+    </blockquote>
+
+    <p><a href="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab01-create-assigned-group.png" target="_blank"><img src="./AZ-104-MicrosoftAzureAdministrator_files/az104-lab01-create-assigned-group.png" alt="Screenshot of create assigned group."></a></p>
+  </li>
+  <li>
+    <p>Select <strong>No owners selected</strong>.</p>
+  </li>
+  <li>
+    <p>In the <strong>Add owners</strong> page, search for and <strong>select</strong> yourself (shown in the top right corner) as the owner. Notice you can have more than one owner.</p>
+  </li>
+  <li>
+    <p>Select <strong>No members selected</strong>.</p>
+  </li>
+  <li>
+    <p>In the <strong>Add members</strong> pane, search for and <strong>select</strong> the <strong>az104-user1</strong> and the <strong>guest user</strong> you invited. Add both of the users to the group.</p>
+  </li>
+  <li>
+    <p>Select <strong>Create</strong> to deploy the group.</p>
+  </li>
+  <li>
+    <p><strong>Refresh</strong> the page and ensure your group was created.</p>
+  </li>
+  <li>
+    <p>Select the new group and review the <strong>Members</strong> and <strong>Owners</strong> information.</p>
+  </li>
+</ol>
+
+<blockquote>
+  <p><strong>Note:</strong> You may be managing a large number of groups. Does your organization have a plan for creating groups and adding members?</p>
+</blockquote>
+
+<h2 id="extend-your-learning-with-copilot">Extend your learning with Copilot</h2>
+
+<p>Copilot can assist you in learning how to use the Azure scripting tools. Copilot can also assist in areas not covered in the lab or where you need more information. Open an Edge browser and choose Copilot (top right) or navigate to <em>copilot.microsoft.com</em>. Take a few minutes to try these prompts.</p>
+<ul>
+  <li>What are the Azure PowerShell and CLI commands to create a security group called IT Admins? Provide the official command reference page.</li>
+  <li>Provide a step-by-step strategy for managing users and groups in Microsoft Entra ID.</li>
+  <li>What are the steps in the Azure portal to bulk create users and groups?</li>
+  <li>Provide a comparison table of internal and external Microsoft Entra ID user accounts.</li>
+</ul>
+
+<h2 id="learn-more-with-self-paced-training">Learn more with self-paced training</h2>
+
+<ul>
+  <li><a href="https://learn.microsoft.com/training/modules/understand-azure-active-directory/">Understand Microsoft Entra ID</a>. Compare Microsoft Entra ID to Active Directory DS, learn about Microsoft Entra ID P1 and P2, and explore Microsoft Entra Domain Services for managing domain-joined devices and apps in the cloud.</li>
+  <li><a href="https://learn.microsoft.com//training/modules/create-users-and-groups-in-azure-active-directory/">Create Azure users and groups in Microsoft Entra ID</a>. Create users in Microsoft Entra ID. Understand different types of groups. Create a group and add members. Manage business-to-business guest accounts.</li>
+  <li><a href="https://learn.microsoft.com/training/modules/allow-users-reset-their-password/">Allow users to reset their password with Microsoft Entra self-service password reset</a>. Evaluate self-service password reset to allow users in your organization to reset their passwords or unlock their accounts. Set up, configure, and test self-service password reset.</li>
+</ul>
+
+<h2 id="key-takeaways">Key takeaways</h2>
+
+<p>Congratulations on completing the lab. Here are some main takeways for this lab:</p>
+
+<ul>
+  <li>A tenant represents your organization and helps you to manage a specific instance of Microsoft cloud services for your internal and external users.</li>
+  <li>Microsoft Entra ID has user and guest accounts. Each account has a level of access specific to the scope of work expected to be done.</li>
+  <li>Groups combine together related users or devices. There are two types of groups including Security and Microsoft 365.</li>
+  <li>Group membership can be statically or dynamically assigned.</li>
+</ul>
+
+            </article>
+        </main>
+    </div>
+    <footer class="fixed-bottom d-print-none">
+        <nav class="navbar navbar-light bg-light d-flex justify-content-around">
+            <span class="navbar-text">
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <a href="https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator" target="_blank" class="ml-2">
+                    MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator
+                </a>
+            </span>
+        </nav>
+    </footer>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/jquery-3.2.1.slim.min.js.download" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/popper.min.js.download" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/bootstrap.min.js.download" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/clipboard.min.js.download"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/highlight.min.js.download"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator_files/script.js.download"></script>
+
+
+
+<iframe id="iTp6WjeK" frameborder="0" src="./AZ-104-MicrosoftAzureAdministrator_files/translateSandbox.html" style="width: 0px; height: 0px; display: none;"></iframe></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
