@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<!-- saved from url=(0102)file:///D:/2024%20new/Cloud%20computing/Labs/Lab%206/AZ-104-MicrosoftAzureAdministrator%20Lab%209.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>
+            AZ-104-MicrosoftAzureAdministrator
+        </title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/vs.min.css">
+        <script src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/highlight.min.js.download"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <link rel="stylesheet" href="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/style.css">
+    </head>
+    <body data-spy="scroll" data-target="#linksMenu" data-new-gr-c-s-check-loaded="14.1226.0" data-gr-ext-installed="">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gray">
+        <div class="container d-flex justify-content-between">
+            <a class="my-1 title text-white" href="https://docs.microsoft.com/training/">
+                <img src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/microsoft-gray.png" alt="Microsoft logo" style="width:100px;height:21px;">
+            </a>
+            <span class="my-1 title text-black">Microsoft Learn</span>
+            <span class="ml-2"><a href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator">≡</a></span>
+        </div>
+        <!--
+        <div class="container d-flex justify-content-between">
+            <a class="my-1 title text-azure text-uppercase" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator">
+                AZ-104-MicrosoftAzureAdministrator
+            </a>
+            <a href="https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator" target="_blank" class="btn btn-sm btn-outline-secondary text-light">
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <span class="ml-2">GitHub</span>
+            </a>
+        </div>
+        -->
+    </nav>
+    <hr color-"gray"="">
+    <div class="container">
+        <main class="row extra-padding">
+            <aside class="col-sm-2">       
+                <nav id="linksMenu" class="toc sticky-top">
+                    <ul class="nav navbar-nav flex-column">
+                    <li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#lab-introduction">Lab introduction</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#estimated-timing-40-minutes">Estimated timing: 40 minutes</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#lab-scenario">Lab scenario</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#interactive-lab-simulation">Interactive lab simulation</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#architecture-diagram">Architecture diagram</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#job-skills">Job skills</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#task-1-use-a-template-to-provision-an-infrastructure">Task 1: Use a template to provision an infrastructure</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#task-2-create-an-alert">Task 2: Create an alert</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#task-3-configure-action-group-notifications">Task 3: Configure action group notifications</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#task-4-trigger-an-alert-and-confirm-it-is-working">Task 4: Trigger an alert and confirm it is working</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#task-5-configure-an-alert-processing-rule">Task 5: Configure an alert processing rule</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#task-6-use-azure-monitor-log-queries">Task 6: Use Azure Monitor log queries</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#cleanup-your-resources">Cleanup your resources</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#extend-your-learning-with-copilot">Extend your learning with Copilot</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#learn-more-with-self-paced-training">Learn more with self-paced training</a></li><li class="nav-item"><a class="nav-link" href="https://microsoftlearning.github.io/AZ-104-MicrosoftAzureAdministrator/Instructions/Labs/LAB_11-Implement_Monitoring.html#key-takeaways">Key takeaways</a></li></ul>
+                </nav>         
+            </aside>
+            <hr class="">
+            <article class="col-sm-10 mb-5">
+                <h1 id="lab-11---implement-monitoring">Lab 11 - Implement Monitoring</h1>
+
+<h2 id="lab-introduction">Lab introduction</h2>
+
+<p>In this lab, you learn about Azure Monitor. You learn to create an alert and send it to an action group. You trigger and test the alert and check the activity log.</p>
+
+<p>This lab requires an Azure subscription. Your subscription type may affect the availability of features in this lab. You may change the region, but the steps are written using <strong>East US</strong>.</p>
+
+<h2 id="estimated-timing-40-minutes">Estimated timing: 40 minutes</h2>
+
+<h2 id="lab-scenario">Lab scenario</h2>
+
+<p>Your organization has migrated their infrastructure to Azure. It is important that Administrators are notified of any significant infrastructure changes. You plan to examine the capabilities of Azure Monitor, including Log Analytics.</p>
+
+<h2 id="interactive-lab-simulation">Interactive lab simulation</h2>
+
+<p>There is an interactive lab simulation that you might find useful for this topic. The simulation lets you to click through a similar scenario at your own pace. There are differences between the interactive simulation and this lab, but many of the core concepts are the same. An Azure subscription is not required.</p>
+
+<ul>
+  <li><a href="https://mslabs.cloudguides.com/guides/AZ-104%20Exam%20Guide%20-%20Microsoft%20Azure%20Administrator%20Exercise%2017">Implement monitoring</a>. Create a Log Analytics workspace and Azure-automation solutions. Review monitoring and diagnostic settings for virtual machines. Review Azure Monitor and Log Analytics functionality.</li>
+</ul>
+
+<h2 id="architecture-diagram">Architecture diagram</h2>
+
+<p><a href="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/az104-lab11-architecture.png" target="_blank"><img src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/az104-lab11-architecture.png" alt="Diagram of the architecture tasks"></a></p>
+
+<h2 id="job-skills">Job skills</h2>
+
+<ul>
+  <li>Task 1: Use a template to provision an infrastructure.</li>
+  <li>Task 2: Create an alert.</li>
+  <li>Task 3: Configure action group notifications.</li>
+  <li>Task 4: Trigger an alert and confirm it is working.</li>
+  <li>Task 5: Configure an alert processing rule.</li>
+  <li>Task 6: Use Azure Monitor log queries.</li>
+</ul>
+
+<h2 id="task-1-use-a-template-to-provision-an-infrastructure">Task 1: Use a template to provision an infrastructure</h2>
+
+<p>In this task, you will deploy a virtual machine that will be used to test monitoring scenarios.</p>
+
+<ol>
+  <li>
+    <p>Download the <strong>\Allfiles\Lab11\az104-11-vm-template.json</strong> lab files to your computer.</p>
+  </li>
+  <li>
+    <p>Sign in to the <strong>Azure portal</strong> - <code>https://portal.azure.com</code>.</p>
+  </li>
+  <li>
+    <p>From the Azure portal, search for and select <code>Deploy a custom template</code>.</p>
+  </li>
+  <li>
+    <p>On the custom deployment page, select <strong>Build you own template in the editor</strong>.</p>
+  </li>
+  <li>
+    <p>On the edit template page, select <strong>Load file</strong>.</p>
+  </li>
+  <li>
+    <p>Locate and select the <strong>\Allfiles\Labs11\az104-11-vm-template.json</strong> file and select <strong>Open</strong>.</p>
+  </li>
+  <li>
+    <p>Select <strong>Save</strong>.</p>
+  </li>
+  <li>
+    <p>Use the following information to complete the custom deployment fields, leaving all other fields with their default values:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Subscription</td>
+          <td>Your Azure subscription</td>
+        </tr>
+        <tr>
+          <td>Resource group</td>
+          <td><code>az104-rg11</code> (If necessary, select <strong>Create new</strong>)</td>
+        </tr>
+        <tr>
+          <td>Region</td>
+          <td><strong>East US</strong></td>
+        </tr>
+        <tr>
+          <td>Username</td>
+          <td><code>localadmin</code></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td>Provide a complex password</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Select <strong>Review + Create</strong>, then select <strong>Create</strong>.</p>
+  </li>
+  <li>
+    <p>Wait for the deployment to finish, then click <strong>Go to resource group</strong>.</p>
+  </li>
+  <li>
+    <p>Review what resources were deployed. There should be one virtual network with one virtual machine.</p>
+  </li>
+</ol>
+
+<p><strong>Configure Azure Monitor for virtual machines (this will be used in the last task)</strong></p>
+
+<ol>
+  <li>
+    <p>In the portal, search for and select <strong>Monitor</strong>.</p>
+  </li>
+  <li>
+    <p>Take a minute to review all the insights, detection, triage, and diagnosis tools that are available.</p>
+  </li>
+  <li>
+    <p>Select <strong>View</strong> in the <strong>VM Insights</strong> box, and then select <strong>Configure Insights</strong>.</p>
+  </li>
+  <li>
+    <p>Select your virtual machine, and then <strong>Enable</strong> (twice).</p>
+  </li>
+  <li>
+    <p>Take the defaults for subscription and data collection rules, then select <strong>Configure</strong>.</p>
+  </li>
+  <li>
+    <p>It will take a few minutes for the virtual machine agent to install and configure, proceed to the next step.</p>
+  </li>
+</ol>
+
+<h2 id="task-2-create-an-alert">Task 2: Create an alert</h2>
+
+<p>In this task, you create an alert for when a virtual machine is deleted.</p>
+
+<ol>
+  <li>
+    <p>Continue on the <strong>Monitor</strong> page , select <strong>Alerts</strong>.</p>
+  </li>
+  <li>
+    <p>Select <strong>Create +</strong> and select <strong>Alert rule</strong>.</p>
+  </li>
+  <li>
+    <p>Select the box for the resource group, then select <strong>Apply</strong>. This alert will apply to any virtual machines in the resource group. Alternatively, you could just specify one particular machine.</p>
+  </li>
+  <li>
+    <p>Select the <strong>Condition</strong> tab and then select the <strong>See all signals</strong> link.</p>
+  </li>
+  <li>
+    <p>Search for and select <strong>Delete Virtual Machine (Virtual Machines)</strong>. Notice the other built-in signals. Select <strong>Apply</strong></p>
+  </li>
+  <li>
+    <p>In the <strong>Alert logic</strong> area (scroll down), review the <strong>Event level</strong> selections. Leave the default of <strong>All selected</strong>.</p>
+  </li>
+  <li>
+    <p>Review the <strong>Status</strong> selections. Leave the default of <strong>All selected</strong>.</p>
+  </li>
+  <li>
+    <p>Leave the <strong>Create an alert rule</strong> pane open for the next task.</p>
+  </li>
+</ol>
+
+<h2 id="task-3-configure-action-group-notifications">Task 3: Configure action group notifications</h2>
+
+<p>In this task, if the alert is triggered send an email notification to the operations team.</p>
+
+<ol>
+  <li>
+    <p>Continue working on your alert. Select <strong>Next: Actions</strong>, and then select <strong>Create action group</strong>.</p>
+
+    <blockquote>
+      <p><strong>Did you know?</strong> You can add up to five action groups to an alert rule. Action groups are executed concurrently, in no specific order. Multiple alert rules can use the same action group.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>On the <strong>Basics</strong> tab, enter the following values for each setting.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Project details</strong></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Subscription</td>
+          <td>your subscription</td>
+        </tr>
+        <tr>
+          <td>Resource group</td>
+          <td><strong>az104-rg11</strong></td>
+        </tr>
+        <tr>
+          <td>Region</td>
+          <td><strong>Global</strong> (default)</td>
+        </tr>
+        <tr>
+          <td><strong>Instance details</strong></td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Action group name</td>
+          <td><code>Alert the operations team</code> (must be unique in the resource group)</td>
+        </tr>
+        <tr>
+          <td>Display name</td>
+          <td><code>AlertOpsTeam</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Select <strong>Next: Notifications</strong> and enter the following values for each setting.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Notification type</td>
+          <td>Select <strong>Email/SMS message/Push/Voice</strong></td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td><code>VM was deleted</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Select <strong>Email</strong>, and in the <strong>Email</strong> box, enter your email address, and then select <strong>OK</strong>.</p>
+
+    <blockquote>
+      <p><strong>Note:</strong> You should receive an email notification saying you were added to an action group. There may be a few minutes delay, but that is a sure sign the rule has deployed.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Once the action group is created move to the <strong>Next: Details</strong> tab and enter the following values for each setting.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alert rule name</td>
+          <td><code>VM was deleted</code></td>
+        </tr>
+        <tr>
+          <td>Alert rule description</td>
+          <td><code>A VM in your resource group was deleted</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Select <strong>Review + create</strong> to validate your input, then select <strong>Create</strong>.</p>
+  </li>
+</ol>
+
+<h2 id="task-4-trigger-an-alert-and-confirm-it-is-working">Task 4: Trigger an alert and confirm it is working</h2>
+
+<p>In this task, you trigger the alert and confirm a notification is sent.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> If you delete the virtual machine before the alert rule deploys, the alert rule might not be triggered.</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>In the portal, search for and select <strong>Virtual machines</strong>.</p>
+  </li>
+  <li>
+    <p>Check the box for the <strong>az104-vm0</strong> virtual machine.</p>
+  </li>
+  <li>
+    <p>Select <strong>Delete</strong> from the menu bar.</p>
+  </li>
+  <li>
+    <p>Check the box for <strong>Apply force delete</strong>. Check the box at the bottom confirming that you want the resources to be deleted and select <strong>Delete</strong>.</p>
+  </li>
+  <li>
+    <p>In the title bar, select the <strong>Notifications</strong> icon and wait until <strong>vm0</strong> is successfully deleted.</p>
+  </li>
+  <li>
+    <p>You should receive a notification email that reads, <strong>Important notice: Azure Monitor alert VM was deleted was activated…</strong> If not, open your email program and look for an email from azure-noreply@microsoft.com.</p>
+
+    <p><a href="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/az104-lab11-alert-email.png" target="_blank"><img src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/az104-lab11-alert-email.png" alt="Screenshot of alert email."></a></p>
+  </li>
+  <li>
+    <p>On the Azure portal resource menu, select <strong>Monitor</strong>, and then select <strong>Alerts</strong> in the menu on the left.</p>
+  </li>
+  <li>
+    <p>You should have three verbose alerts that were generated by deleting <strong>vm0</strong>.</p>
+
+    <blockquote>
+      <p><strong>Note:</strong> It can take a few minutes for the alert email to be sent and for the alerts to be updated in the portal. If you don’t want to wait, continue to the next task and then return.</p>
+    </blockquote>
+  </li>
+  <li>
+    <p>Select the name of one of the alerts (For example, <strong>VM was deleted</strong>). An <strong>Alert details</strong> pane appears that shows more details about the event.</p>
+  </li>
+</ol>
+
+<h2 id="task-5-configure-an-alert-processing-rule">Task 5: Configure an alert processing rule</h2>
+
+<p>In this task, you create an alert rule to suppress notifications during a maintenance period.</p>
+
+<ol>
+  <li>
+    <p>Continue in the <strong>Alerts</strong> blade, select <strong>Alert processing rules</strong> and then <strong>+ Create</strong>.</p>
+  </li>
+  <li>
+    <p>Select your <strong>resource group</strong>, then select <strong>Apply</strong>.</p>
+  </li>
+  <li>
+    <p>Select <strong>Next: Rule settings</strong>, then select <strong>Suppress notifications</strong>.</p>
+  </li>
+  <li>
+    <p>Select <strong>Next: Scheduling</strong>.</p>
+  </li>
+  <li>
+    <p>By default, the rule works all the time, unless you disable it or configure a schedule. You are going to define a rule to suppress notifications during overnight maintenance.
+Enter these settings for the scheduling of the alert processing rule:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Apply the rule</td>
+          <td>At a specific time</td>
+        </tr>
+        <tr>
+          <td>Start</td>
+          <td>Enter today’s date at 10 pm.</td>
+        </tr>
+        <tr>
+          <td>End</td>
+          <td>Enter tomorrow’s date at 7 am.</td>
+        </tr>
+        <tr>
+          <td>Time zone</td>
+          <td>Select the local timezone.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><a href="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/az104-lab11-alert-processing-rule-schedule.png" target="_blank"><img src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/az104-lab11-alert-processing-rule-schedule.png" alt="Screenshot of the scheduling section of an alert processing rule"></a></p>
+  </li>
+  <li>
+    <p>Select <strong>Next: Details</strong> and enter these settings:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Setting</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Resource group</td>
+          <td><strong>az104-rg11</strong></td>
+        </tr>
+        <tr>
+          <td>Rule name</td>
+          <td><code>Planned Maintenance</code></td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td><code>Suppress notifications during planned maintenance.</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <p>Select <strong>Review + create</strong> to validate your input, then select <strong>Create</strong>.</p>
+  </li>
+</ol>
+
+<h2 id="task-6-use-azure-monitor-log-queries">Task 6: Use Azure Monitor log queries</h2>
+
+<p>In this task, you will use Azure Monitor to query the data captured from the virtual machine.</p>
+
+<ol>
+  <li>
+    <p>In the Azure portal, search for and select <code>Monitor</code> blade, click <strong>Logs</strong>.</p>
+  </li>
+  <li>
+    <p>If necessary close the splash screen.</p>
+  </li>
+  <li>
+    <p>Select a scope, your <strong>resource group</strong>. Select <strong>Apply</strong>.</p>
+  </li>
+  <li>
+    <p>In the <strong>Queries</strong> tab, select <strong>Virtual machines</strong> (left pane).</p>
+  </li>
+  <li>
+    <p>Review the queries that are available. <strong>Run</strong> (hover over the query) the <strong>Count heartbeats</strong> query.</p>
+  </li>
+  <li>
+    <p>You should receive a heartbeat count for when the virtual machine was running.</p>
+  </li>
+  <li>
+    <p>Review the query. This query uses the <em>heartbeat</em> table.</p>
+  </li>
+  <li>
+    <p>Replace the query with this one, and then click <strong>Run</strong>. Review the resulting chart.</p>
+
+    <div class="code-header mt-3 mb-0 bg-light d-flex justify-content-between border"><span class="mx-2 text-muted text-capitalize font-weight-light">code</span><button class="m-0 btn btn-code btn-sm btn-light codeBtn rounded-0 border-left text-muted font-weight-light" data-clipboard-target="#codeBlock0" type="button"><i class="fa fa-files-o mr-2" aria-hidden="true"></i>Copy</button></div><pre id="codeBlock0" class="mt-0"><code class="hljs cs"> InsightsMetrics
+ | <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">where</span></span></span> TimeGenerated &gt; ago(<span class="hljs-number"><span class="hljs-number"><span class="hljs-number">1</span></span></span>h)
+ | <span class="hljs-keyword"><span class="hljs-keyword"><span class="hljs-keyword">where</span></span></span> Name == <span class="hljs-string"><span class="hljs-string"><span class="hljs-string">"UtilizationPercentage"</span></span></span>
+ | <span class="hljs-function"><span class="hljs-function"><span class="hljs-function">summarize </span></span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">avg</span></span></span></span></span><span class="hljs-function"><span class="hljs-function">(</span></span><span class="hljs-params"><span class="hljs-function"><span class="hljs-params"><span class="hljs-function"><span class="hljs-params">Val</span></span></span></span></span><span class="hljs-function"><span class="hljs-function">) </span></span><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword"><span class="hljs-function"><span class="hljs-keyword">by</span></span></span></span></span><span class="hljs-function"><span class="hljs-function"> </span></span><span class="hljs-title"><span class="hljs-function"><span class="hljs-title"><span class="hljs-function"><span class="hljs-title">bin</span></span></span></span></span><span class="hljs-function"><span class="hljs-function">(</span></span><span class="hljs-params"><span class="hljs-function"><span class="hljs-params"><span class="hljs-function"><span class="hljs-params">TimeGenerated, </span></span></span></span><span class="hljs-number"><span class="hljs-function"><span class="hljs-params"><span class="hljs-number"><span class="hljs-function"><span class="hljs-params"><span class="hljs-number">5</span></span></span></span></span></span></span><span class="hljs-function"><span class="hljs-params"><span class="hljs-function"><span class="hljs-params">m</span></span></span></span></span><span class="hljs-function"><span class="hljs-function">), Computer </span></span><span class="hljs-comment"><span class="hljs-function"><span class="hljs-comment"><span class="hljs-function"><span class="hljs-comment">//split up by computer</span></span></span></span></span><span class="hljs-function"><span class="hljs-function">
+ | render timechart
+</span></span></span></code></pre>
+  </li>
+  <li>
+    <p>As you have time, review and run other queries.</p>
+
+    <blockquote>
+      <p><strong>Did you know?</strong>: If you want to practice with other queries, there is a <a href="https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial#open-log-analytics">Log Analytics Demo Environment</a>.</p>
+    </blockquote>
+
+    <blockquote>
+      <p><strong>Did you know?</strong>: Once you find a query you like, you can create an alert from it.</p>
+    </blockquote>
+  </li>
+</ol>
+
+<h2 id="cleanup-your-resources">Cleanup your resources</h2>
+
+<p>If you are working with <strong>your own subscription</strong> take a minute to delete the lab resources. This will ensure resources are freed up and cost is minimized. The easiest way to delete the lab resources is to delete the lab resource group.</p>
+
+<ul>
+  <li>In the Azure portal, select the resource group, select <strong>Delete the resource group</strong>, <strong>Enter resource group name</strong>, and then click <strong>Delete</strong>.</li>
+  <li>Using Azure PowerShell, <code>Remove-AzResourceGroup -Name resourceGroupName</code>.</li>
+  <li>Using the CLI, <code>az group delete --name resourceGroupName</code>.</li>
+</ul>
+
+<h2 id="extend-your-learning-with-copilot">Extend your learning with Copilot</h2>
+<p>Copilot can assist you in learning how to use the Azure scripting tools. Copilot can also assist in areas not covered in the lab or where you need more information. Open an Edge browser and choose Copilot (top right) or navigate to <em>copilot.microsoft.com</em>. Take a few minutes to try these prompts.</p>
+
+<ul>
+  <li>What are the basic configuration steps to be alerted in Azure when a virtual machine is down?</li>
+  <li>How can I be notified when an Azure alert is triggered?</li>
+  <li>Construct an Azure Monitor query to provide virtual machine CPU performance information.</li>
+</ul>
+
+<h2 id="learn-more-with-self-paced-training">Learn more with self-paced training</h2>
+
+<ul>
+  <li><a href="https://learn.microsoft.com/en-us/training/modules/incident-response-with-alerting-on-azure/">Improve incident response with alerting on Azure</a>. Respond to incidents and activities in your infrastructure through alerting capabilities in Azure Monitor.</li>
+  <li><a href="https://learn.microsoft.com/en-us/training/modules/monitor-azure-vm-using-diagnostic-data/">Monitor your Azure virtual machines with Azure Monitor</a>. Monitor your Azure VMs by using Azure Monitor to collect and analyze VM host and client metrics and logs.</li>
+</ul>
+
+<h2 id="key-takeaways">Key takeaways</h2>
+
+<p>Congratulations on completing the lab. Here are the main takeaways for this lab.</p>
+
+<ul>
+  <li>Alerts help you detect and address issues before users notice there might be a problem with your infrastructure or application.</li>
+  <li>You can alert on any metric or log data source in the Azure Monitor data platform.</li>
+  <li>An alert rule monitors your data and captures a signal that indicates something is happening on the specified resource.</li>
+  <li>An alert is triggered if the conditions of the alert rule are met. Several actions (email, SMS, push, voice) can be triggered.</li>
+  <li>Action groups include individuals that should be notified of an alert.</li>
+</ul>
+
+            </article>
+        </main>
+    </div>
+    <footer class="fixed-bottom d-print-none">
+        <nav class="navbar navbar-light bg-light d-flex justify-content-around">
+            <span class="navbar-text">
+                <i class="fa fa-github" aria-hidden="true"></i>
+                <a href="https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator" target="_blank" class="ml-2">
+                    MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator
+                </a>
+            </span>
+        </nav>
+    </footer>
+    <script src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/jquery-3.2.1.slim.min.js.download" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/popper.min.js.download" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/bootstrap.min.js.download" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/clipboard.min.js.download"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/highlight.min.js.download"></script>
+    <script src="./AZ-104-MicrosoftAzureAdministrator Lab 11_files/script.js.download"></script>
+
+
+
+<grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></body></html>
